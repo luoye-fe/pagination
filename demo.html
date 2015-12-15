@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angular 分页插件</title>
+	<link rel="stylesheet" type="text/css" href="src/style.css">
+</head>
+<body ng-app="app" ng-controller="main">
+	
+
+	<pagination conf="paginationConf"></pagination>
+
+
+	<script type="text/javascript" src="src/angular.js"></script>
+	<script type="text/javascript" src="src/pagination.js"></script>
+
+
+
+	<script type="text/javascript">
+
+
+	var app = angular.module('app',['mPagination']);
+
+
+	app.controller('main', ['$scope', function($scope){
+		$scope.paginationConf = {
+			currentPage: 1,     // 当前页
+			totalItems: 30,     // 总条数
+			itemsPerPage: 3,    // 每页条数
+			pagesLength: 5,     // 显示几页( 1,2,3 / 1,2,3,4,5)(奇数)
+			onChange: function() {
+				// 回调
+				console.log(this.currentPage);
+			}
+		}
+	}])
+
+	</script>
+</body>
+</html>

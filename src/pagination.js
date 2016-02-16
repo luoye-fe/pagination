@@ -108,7 +108,7 @@ angular.module('mPagination', [])
                             }
                         } else if (scope.conf.currentPage > scope.conf.numberOfPages - offset) {
                             // 右边
-                            for (i = scope.conf.pagesLength-1; i > 0; i--) {
+                            for (i = scope.conf.pagesLength - 1; i > 0; i--) {
                                 scope.pageList.push(scope.conf.numberOfPages - i);
                             }
                             scope.pageList.push(scope.conf.numberOfPages)
@@ -116,7 +116,7 @@ angular.module('mPagination', [])
                         } else {
                             // 中间
                             for (i = Math.ceil(scope.conf.pagesLength / 2); i > 1; i--) {
-                                scope.pageList.push(scope.conf.currentPage - i);
+                                scope.pageList.push(scope.conf.currentPage - i + 1);
                             }
                             scope.pageList.push(scope.conf.currentPage);
                             for (i = 1; i < Math.ceil(scope.conf.pagesLength / 2); i++) {
@@ -130,6 +130,7 @@ angular.module('mPagination', [])
                         if (!(oldValue != newValue && oldValue[0] == 0)) {
                             // 回调
                             scope.conf.onChange();
+                            console.log(scope.pageList);
                         }
                     }
                     scope.$parent.conf = scope.conf;
